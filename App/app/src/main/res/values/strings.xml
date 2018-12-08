@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">AwesomeApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_event_choices">EventChoicesActivity</string>
+    <string name="other_app_icon">App icon of an installed app</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="preferences_category_one">Category 1</string>
+    <string name="preferences_category_two">Category 2</string>
+
+    <string name="preferences_switch_title">Switch Preference</string>
+    <string name="preferences_switch_summ">Switch Summary</string>
+
+    <string name="preferences_edittext_title">EditText Preference</string>
+    <string name="preferences_edittext_summ">EditText Summary</string>
+    <string name="preferences_edittext_default">Default value</string>
+    <string name="preferences_edittext_message">Dialog Message</string>
+
+    <string name="preferences_time_title">Time Preference</string>
+    <string name="preferences_time_summ">Time Summary</string>
+
+    <string name="preferences_checkbox_title">CheckBox Preference</string>
+    <string name="preferences_checkbox_summ">CheckBox Summary</string>
+
+    <string name="btn_custom">Button in custom layout</string>
+
+
+    <string name="pref_pref1" translatable="false">pref_pref1</string>
+    <string name="pref_pref2" translatable="false">pref_pref2</string>
+    <string name="pref_pref3" translatable="false">pref_pref3</string>
+    <string name="pref_pref4" translatable="false">pref_pref4</string>
+
+    <string name="noti_channel_default">Primary Channel</string>
+    <string name="noti_channel_second">Secondary Channel</string>
+
+    <string name="notification_channel_name">Placeholder notification</string>
+    <string name="notification_channel_desc">This is the placeholder notification channel for the Awesome AI app. These notifications are essential for the proper functioning of the app.</string>
+
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_gray_border"
+    >
+
+
+    <TextView
+        android:id="@+id/labelNameTextBox"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:textAlignment="textStart"
+        android:layout_gravity="start|center"
+        android:textSize="18sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:layout_marginLeft="16dp"
+        tools:text="App Title" />
+
+    <ImageButton
+        android:contentDescription="App Setting"
+        android:id="@+id/appSettingsIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?attr/selectableItemBackground"
+        android:src="@drawable/settings_outline"
+        android:alpha="0.5"/>
+
+    <CheckBox
+        android:id="@+id/labelelectCheckBox"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_gravity="center"
+        android:layout_weight="1"/>
+</LinearLayout>

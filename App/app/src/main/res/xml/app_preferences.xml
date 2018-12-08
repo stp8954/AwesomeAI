@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="vibrate"
+        android:summary="Vibrate phone to alert for event"
+        android:title="Vibrate Phone" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="flash"
+        android:summary="Flash phone lights to alert for event"
+        android:title="Flash phone lights" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="android_wear"
+        android:summary="Send notification on Android Wear device"
+        android:title="Android Wear notification" />
+
+    <EditTextPreference
+        android:key="alertInterval"
+        android:inputType="number"
+        android:summary="Set min interval between successive alerts"
+        android:title="Duration in mins"
+        android:defaultValue="1"
+        android:digits="0123456789"/>
+
+</PreferenceScreen>
