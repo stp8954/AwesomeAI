@@ -7,6 +7,8 @@
 #include <SuperpoweredCPU.h>
 #include <SLES/OpenSLES.h>
 #include <SLES/OpenSLES_AndroidConfiguration.h>
+#include <algorithm>
+#include <vector>
 #include <sstream>
 extern "C"{
 #include "audioProcessing.h"
@@ -35,9 +37,9 @@ extern "C" JNIEXPORT void Java_com_awesome_app_awesomeapp_util_EventRecognitionS
     window_sz = window_size;
     block_sz = block_dim;
     mel_band_sz = num_bands;
-    inputBufferFloat = (float *)malloc(buffersize * sizeof(float) * 2 + 128);
-    left             = (float *)malloc(buffersize * sizeof(float) + 64);
-    right            = (float *)malloc(buffersize * sizeof(float) + 64);
+    inputBufferFloat = (float*)malloc(buffersize * sizeof(float) * 2 + 128);
+    left             = (float*)malloc(buffersize * sizeof(float) + 64);
+    right            = (float*)malloc(buffersize * sizeof(float) + 64);
     data             = (float*)malloc(sizeof(float)*spectrogram_size);
 
     memoryPointer = initialize(samplerate, buffersize, window_sz, 1024);
@@ -60,7 +62,28 @@ extern "C" JNIEXPORT jfloatArray Java_com_awesome_app_awesomeapp_util_EventRecog
 }
 
 
-extern "C" JNIEXPORT void Java_com_awesome_app_awesomeapp_util_EventRecognitionService_Cleanup(JNIEnv * javaEnvironment, jobject __unused obj){
+extern "C" JNIEXPORT jfloat Java_com_awesome_app_awesomeapp_util_EventRecognitionService_GetSPL(JNIEnv * __unused javaEnvironment, jobject __unused obj){
+    std::vector<float> spl_buffer(block_sz);
+    float* spl = spl_buffer.data();
+
+    for (int i = 0; i < block_sz; i++) {
+        float* block_spl = spl + i;
+        *block_spl = 0;
+        for (int j = 0; j < mel_band_sz; j++) {
+            *block_spl += exp(data[mel_band_sz * i + j]);
+        }
+        *block_spl = log(*block_spl);
+    }
+
+    const float spl_offset = -77.2757f;
+    const float lse_ratio  = static_cast<float>(10.0 / log(10.0 / M_E));
+    const float lse_offset = 17.f;
+
+    return (*std::max_element(spl, spl + block_sz) + lse_offset) / lse_ratio + spl_offset;
+}
+
+
+extern "C" JNIEXPORT void Java_com_awesome_app_awesomeapp_util_EventRecognitionService_Cleanup(JNIEnv * __unused javaEnvironment, jobject __unused obj){
 
     if(inputBufferFloat != NULL){
         delete audioIO;
