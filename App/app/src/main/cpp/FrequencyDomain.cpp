@@ -79,7 +79,7 @@ extern "C" JNIEXPORT jfloat Java_com_awesome_app_awesomeapp_util_EventRecognitio
     const float lse_ratio  = static_cast<float>(10.0 / log(10.0 / M_E));
     const float lse_offset = 17.f;
 
-    return (*std::max_element(spl, spl + block_sz) + lse_offset) / lse_ratio + spl_offset;
+    return (*std::max_element(spl, spl + block_sz) + lse_offset) * lse_ratio + spl_offset;
 }
 
 
