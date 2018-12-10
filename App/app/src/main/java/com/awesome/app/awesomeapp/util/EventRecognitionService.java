@@ -188,7 +188,7 @@ public class EventRecognitionService extends Service {
                     verdictQueue[4] = c;
 
                     c = getMaxVote(verdictQueue);
-                    int db = rand.nextInt(180);
+                    int db = (int)GetSPL();
                     if(c == -1)
                     {
                         if(mCallback != null)
@@ -298,4 +298,5 @@ public class EventRecognitionService extends Service {
     private native void FrequencyDomain(int sampleRate, int bufferSize, int block_dim, int num_bands, int window_size);
     private native void Cleanup();
     private native float[] GetSpectrogram();
+    private native float GetSPL();
 }
