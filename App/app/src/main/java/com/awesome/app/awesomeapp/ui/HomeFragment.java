@@ -242,9 +242,10 @@ public class HomeFragment extends Fragment implements ServiceConnection , EventR
         finalClass.setText(verdict);
         if(mVibrate)
         {
-            if(vibrator != null && vibrator.hasVibrator())
-            {
-                vibrator.vibrate(VibrationEffect.createOneShot(600000, 255));
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                if (vibrator != null && vibrator.hasVibrator()) {
+                    vibrator.vibrate(VibrationEffect.createOneShot(600000, 255));
+                }
             }
         }
         if(mFitbit)

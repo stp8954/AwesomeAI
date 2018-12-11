@@ -7,11 +7,11 @@
         android:summary="Vibrate phone to alert for event"
         android:title="Vibrate Phone" />
 
-    <SwitchPreference
+    <!-- <SwitchPreference
         android:defaultValue="true"
         android:key="flash"
         android:summary="Flash phone lights to alert for event"
-        android:title="Flash phone lights" />
+        android:title="Flash phone lights" /> -->
 
     <SwitchPreference
         android:defaultValue="true"

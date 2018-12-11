@@ -44,7 +44,7 @@ extern "C" JNIEXPORT void Java_com_awesome_app_awesomeapp_util_EventRecognitionS
 
     memoryPointer = initialize(samplerate, buffersize, window_sz, 1024);
 
-    SuperpoweredCPU::setSustainedPerformanceMode(true);
+    SuperpoweredCPU::setSustainedPerformanceMode(false);
     audioIO = new SuperpoweredAndroidAudioIO(samplerate, buffersize, true, false, audioProcessing, NULL, -1, -1 , buffersize * 2);
 }
 
@@ -86,6 +86,7 @@ extern "C" JNIEXPORT jfloat Java_com_awesome_app_awesomeapp_util_EventRecognitio
 extern "C" JNIEXPORT void Java_com_awesome_app_awesomeapp_util_EventRecognitionService_Cleanup(JNIEnv * __unused javaEnvironment, jobject __unused obj){
 
     if(inputBufferFloat != NULL){
+        audioIO->stop();
         delete audioIO;
         free(inputBufferFloat);
         free(left);
