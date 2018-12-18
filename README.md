@@ -32,3 +32,9 @@ Algorithmic performance:
 2. Cross-platform support
 3. Sensitivity (threshold tuning)
 4. General accuracy improvements with minimal power usage penalty
+
+## Project Co-founders
+ - [Sanket Patel](https://github.com/stp8954)
+ - [@sarahcha07](https://github.com/sarahcha07)
+ - [@ramagana](https://github.com/ramagana)
+ - [Bas Hendri](https://github.com/dipidoo)
